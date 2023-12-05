@@ -1,0 +1,35 @@
+[33mcommit e3f5a8d9445aa83436735ca0fde4019553bfd1db[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m
+Author: bzhen <bill.zhen@intel.com>
+Date:   Tue Dec 5 17:58:02 2023 +0000
+
+    added cotnent in file1 from dev
+
+[33mcommit 67d1b9d0eaf09a88f9b9f8f3a32b339dee9eefa0[m
+Author: bzhen <bill.zhen@intel.com>
+Date:   Tue Dec 5 17:54:20 2023 +0000
+
+    added file4
+
+[33mcommit 038fb71147ddb2900faa15e531c88f1aa272a372[m[33m ([m[1;32mprod[m[33m)[m
+Author: bzhen <bill.zhen@intel.com>
+Date:   Tue Dec 5 17:06:23 2023 +0000
+
+    added file3 in dev branch
+
+[33mcommit 0ab7791be510b3437feb6f0f222bcb1f4c3f1422[m[33m ([m[1;32mtest[m[33m)[m
+Author: bzhen <bill.zhen@intel.com>
+Date:   Tue Dec 5 17:05:50 2023 +0000
+
+    added test content in file1 for testing in dev branch
+
+[33mcommit 17bb204526ef865ecfdc0731a42a8ad615b7d754[m
+Author: bzhen <bill.zhen@intel.com>
+Date:   Tue Dec 5 17:04:47 2023 +0000
+
+    added file2 for testing
+
+[33mcommit b05903c8bf77eadc2feeb0c771040561404adda9[m
+Author: bzhen <bill.zhen@intel.com>
+Date:   Tue Dec 5 17:04:22 2023 +0000
+
+    added file1 for testing
