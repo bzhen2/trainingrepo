@@ -5,6 +5,21 @@ on:
       - main
       - development
       - hotfix
+  schedule:
+    - cron: '55-59 10 * * *'
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log Level'
+        required: true
+        default: 'info'
+        type: choice
+        options:
+        - info
+        - debug
+        - warning
+        - crtiical
+  
 jobs:
   job1:
      runs-on: ubuntu-latest
