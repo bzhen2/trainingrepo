@@ -1,0 +1,16 @@
+name: workflow1
+on: 
+  push:
+    branches:
+      - main
+      - hotfix
+jobs:
+  job1:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Remarks
+         run: uname -a
+       - name: task 2 to print hostname
+         run: hostname 
+       - name: echo task run
+         run: echo "workflow ran"
