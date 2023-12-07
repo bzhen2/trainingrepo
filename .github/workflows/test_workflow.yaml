@@ -6,7 +6,7 @@ on:
       - development
       - hotfix
   schedule:
-    - cron: '55-59 10 * * *'
+    - cron: '*/1 * * * *'
   workflow_dispatch:
     inputs:
       logLevel:
