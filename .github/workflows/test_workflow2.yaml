@@ -17,7 +17,7 @@ jobs:
        - name: step 2
          run: |
           ls -l
-          echo "github repo name is USER_REPO and branch name is ${{ GITHUB.REF_NAME }} "
+          echo "github repo name is $USER_REPO and branch name is ${{ GITHUB.REF_NAME }} "
           echo "Value for variable user1 is $USER_NM"
           pwd
           java -version
