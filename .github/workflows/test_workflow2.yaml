@@ -5,25 +5,14 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log Level'
-        required: true
-        default: 'info'
-        type: choice
-        options:
-        - info
-        - debug
-        - warning
-        - crtiical
 env:
   USER1: bzhen
 jobs:
   build:
+     environment: dev
      env:
        USER2: bzhen2
-       USER1: bzhen1_job
+       USER1: bzhen_job
      runs-on: ubuntu-latest
      steps:
        - name: Checkout
@@ -31,7 +20,7 @@ jobs:
        - name: step 2
          env:
            user3: bzhen3
-           USER1: bzhen1_step
+           USER1: bzhen_step
          run: |
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
@@ -42,6 +31,7 @@ jobs:
        - run: echo " Print value of user 3 $user3"
   test:
      runs-on: ubuntu-latest
+     environment: dev
      steps:
        - name: Checkout
          uses: actions/checkout@v4.1.1
@@ -49,4 +39,16 @@ jobs:
          run: |
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
-          echo "Value for variable user1, user2 and user3 are $USER1 $USER2 $user3"     
+          echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
+
+  deploy:
+     environment: prod
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v4.1.1
+       - name: step 2
+         run: |
+          ls -l
+          echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
+          echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
