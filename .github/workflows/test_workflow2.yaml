@@ -32,7 +32,7 @@ jobs:
           java -version
        - run: echo " Print value of user 3 $user3"
   test:
-     if: github.REF_NAME == 'dev'
+     if: github.REF_NAME == 'development'
      runs-on: bzhen-devops
      environment: prod
      steps:
