@@ -19,7 +19,7 @@ jobs:
          uses: actions/checkout@v4.1.1
        - name: step 2
          env:
-           user3: bzhen3
+           user3: bzhen
            USER1: bzhen_step
          run: |
           ls -l
@@ -30,31 +30,35 @@ jobs:
           echo " ${{ secrets.token1 }} " >> /tmp/bzhen-pass
           pwd
           java -version
+         if: github.event_name == 'pull_request'
        - run: echo " Print value of user 3 $user3"
   test:
-     if: github.REF_NAME == 'development'
      runs-on: bzhen-devops
      environment: prod
      steps:
        - name: Checkout
          uses: actions/checkout@v4.1.1
-       - name: step 2
+       - name: step 2 run only on Linux
+         if: runner.os == 'Linux'
          run: |
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
           echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
           echo "password for env is ${{ secrets.token1 }} "
           echo " ${{ secrets.token1 }} " >> /tmp/bzhen-pass
+          echo " ${{ runner.os }} "
   deploy:
      runs-on: bzhen-devops
      steps:
        - name: Checkout
          uses: actions/checkout@v4.1.1
-       - name: step 2
+       - name: step 2 run only on windows
+         if: runner.os != 'Linux'
          run: |
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
           echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
           echo "password for env is ${{ secrets.token_repo }} "
           echo " ${{ secrets.token_repo }} " >> /tmp/bzhen-pass
+          echo " ${{ runner.os }} "
           cat /tmp/bzhen-pass
