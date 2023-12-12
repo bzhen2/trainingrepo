@@ -18,10 +18,10 @@ jobs:
        - name: Checkout
          uses: actions/checkout@v4.1.1
        - name: step 2
+         if: github.event_name == 'pull_request'
          env:
            user3: bzhen3
            USER1: bzhen_step
-         if: github.event_name == 'pull_request'
          run: |
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
