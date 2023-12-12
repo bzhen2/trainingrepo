@@ -56,4 +56,4 @@ jobs:
           echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
           echo "password for env is ${{ secrets.token_repo }} "
           echo " ${{ secrets.token_repo }} " >> /tmp/bzhen-pass
-          cat /tmp/gagan-pass
+          cat /tmp/bzhen-pass
