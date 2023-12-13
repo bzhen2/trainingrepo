@@ -6,28 +6,27 @@ on:
       - main
 
 env:
-  USER1: gagandeep
+  USER1: bzhen
 jobs:
   build:
      environment: dev
      env:
-       USER2: sandeep
-       USER1: sandeep_job
+       USER2: bzhen2
+       USER1: bzhen_job
      runs-on: ubuntu-latest
      steps:
        - name: Checkout
          uses: actions/checkout@v4.1.1
        - name: step 2
          env:
-           user3: ajit
-           USER1: sandeep_step
+           user3: bzhen3
+           USER1: bzhen_step
          run: |
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
           echo "Value for variable user1, user2 and user3 are $USER1 $USER2 $user3"
           echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
           echo "password for env is ${{ secrets.token1 }} "
-          echo " ${{ secrets.token1 }} " >> /tmp/gagan-pass
           pwd
           java -version
          if: github.event_name == 'pull_request'
@@ -45,7 +44,6 @@ jobs:
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
           echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
           echo "password for env is ${{ secrets.token1 }} "
-          echo " ${{ secrets.token1 }} " >> /tmp/gagan-pass
           echo " ${{ runner.os }} "
   deploy:
      runs-on: ubuntu-latest
@@ -59,6 +57,4 @@ jobs:
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
           echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
           echo "password for env is ${{ secrets.token_repo }} "
-          echo " ${{ secrets.token_repo }} " >> /tmp/gagan-pass
           echo " ${{ runner.os }} "
-          cat /tmp/gagan-pass
