@@ -10,7 +10,7 @@ jobs:
      steps:
        - name: step first
          run: |
-           echo "test step 1"
+           echo "Test step 1"
            sleep 10
        - name: step2
          run: echo "step 2 run"
